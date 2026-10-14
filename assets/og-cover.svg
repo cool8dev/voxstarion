@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="VoxStarion — Play Beyond. Learn Within.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#0b2b28"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g stroke="#94a3b8" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 105 H1200 M0 210 H1200 M0 315 H1200 M0 420 H1200 M0 525 H1200"/>
+    <path d="M150 0 V630 M300 0 V630 M450 0 V630 M600 0 V630 M750 0 V630 M900 0 V630 M1050 0 V630"/>
+  </g>
+  <g fill="none" stroke="url(#acc)" stroke-width="6" stroke-linecap="round">
+    <circle cx="930" cy="315" r="150"/>
+    <circle cx="930" cy="315" r="105" stroke-opacity="0.5"/>
+    <circle cx="930" cy="315" r="12" fill="#2dd4bf" stroke="none"/>
+    <ellipse cx="930" cy="315" rx="200" ry="62" stroke-opacity="0.45" transform="rotate(-18 930 315)"/>
+  </g>
+  <g fill="#2dd4bf">
+    <circle cx="180" cy="140" r="4"/><circle cx="1050" cy="120" r="3"/>
+    <circle cx="240" cy="520" r="3"/><circle cx="700" cy="560" r="4"/>
+    <circle cx="420" cy="90" r="2.5"/><circle cx="1120" cy="480" r="3.5"/>
+  </g>
+  <text x="120" y="300" font-family="'Space Grotesk', sans-serif" font-size="96" font-weight="700" fill="#f8fafc">VoxStarion</text>
+  <text x="120" y="370" font-family="'Inter', sans-serif" font-size="44" fill="#2dd4bf">Play Beyond. Learn Within.</text>
+</svg>
