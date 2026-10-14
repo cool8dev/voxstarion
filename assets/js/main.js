@@ -1,4 +1,4 @@
-/* VoxStarion — vanilla JS: theme toggle + mobile navigation.
+/* VoxStarion — vanilla JS: theme toggle + mobile navigation + language switcher.
    No frameworks. No analytics. No cookies. */
 
 (function () {
@@ -6,6 +6,20 @@
 
   var STORAGE_KEY = 'voxstarion-theme';
   var root = document.documentElement;
+
+  /* ---- i18n helper (assets/js/i18n.js loads before this file) ---- */
+  var FALLBACK_STRINGS = {
+    'a11y.switch_to_dark': 'Switch to dark mode',
+    'a11y.switch_to_light': 'Switch to light mode'
+  };
+
+  function t(key) {
+    var s = '';
+    if (window.VoxStarionI18n && typeof window.VoxStarionI18n.t === 'function') {
+      s = window.VoxStarionI18n.t(key);
+    }
+    return s || FALLBACK_STRINGS[key] || '';
+  }
 
   function getStoredTheme() {
     try {
@@ -41,7 +55,7 @@
     buttons.forEach(function (btn) {
       var isDark = theme === 'dark';
       btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-      btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      btn.setAttribute('aria-label', isDark ? t('a11y.switch_to_light') : t('a11y.switch_to_dark'));
       var iconSun = btn.querySelector('[data-icon="sun"]');
       var iconMoon = btn.querySelector('[data-icon="moon"]');
       if (iconSun) iconSun.classList.toggle('hidden', !isDark);
@@ -133,6 +147,19 @@
     document.querySelectorAll('[data-theme-toggle]').forEach(function (btn) {
       btn.addEventListener('click', toggleTheme);
     });
+
+    /* Keep theme toggle aria-labels in sync when the language changes */
+    document.addEventListener('voxstarion:languagechange', function () {
+      syncToggleButtons(currentTheme());
+    });
+
+    /* Language: apply stored/preferred language, wire switcher buttons */
+    if (window.VoxStarionI18n) {
+      window.VoxStarionI18n.applyLanguage(window.VoxStarionI18n.getPreferredLang());
+      document.querySelectorAll('[data-lang-toggle]').forEach(function (btn) {
+        btn.addEventListener('click', function () { window.VoxStarionI18n.toggleLanguage(); });
+      });
+    }
 
     initMobileMenu();
     initYear();
