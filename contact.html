@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('voxstarion-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Contact VoxStarion — questions, feedback, game support, or collaboration ideas.">
+  <meta property="og:title" content="Contact — VoxStarion">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <title>Contact — VoxStarion</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/80">
+    <nav class="mx-auto flex max-w-site items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="VoxStarion home">
+        <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
+          <rect width="64" height="64" rx="14" fill="#020617"/>
+          <g fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-linecap="round">
+            <path d="M32 10 L39 25 L55 25 L42 34 L47 50 L32 40 L17 50 L22 34 L9 25 L25 25 Z" stroke-linejoin="round"/>
+          </g>
+          <circle cx="32" cy="32" r="3.2" fill="#2dd4bf"/>
+        </svg>
+        <span class="font-display text-xl font-bold tracking-tight">VoxStarion</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <a href="index.html" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Home</a>
+        <a href="index.html#games" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Games</a>
+        <a href="about.html" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">About</a>
+        <a href="contact.html" class="rounded-lg px-3 py-2 text-sm font-medium text-teal-700 dark:text-teal-300" aria-current="page">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <svg data-icon="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg data-icon="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" data-menu class="hidden border-t border-slate-200 dark:border-slate-800 md:hidden">
+      <nav class="space-y-1 px-4 py-3" aria-label="Mobile navigation">
+        <a href="index.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Home</a>
+        <a href="index.html#games" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Games</a>
+        <a href="about.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">About</a>
+        <a href="contact.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-teal-700 dark:text-teal-300" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <section class="bg-grid glow-teal relative overflow-hidden">
+      <div class="mx-auto max-w-site px-4 py-16 text-center sm:px-6 lg:py-20">
+        <h1 class="font-display text-4xl font-bold tracking-tight sm:text-5xl">Let's Connect.</h1>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400">
+          Questions, feedback, support, or collaboration ideas? We'd love to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-site px-4 py-14 sm:px-6" aria-label="Contact options">
+      <div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
+        <!-- General inquiries -->
+        <article class="glass p-7">
+          <h2 class="font-display text-xl font-semibold">General Inquiries</h2>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Press, partnerships, or just saying hello.</p>
+          <p class="mt-4" data-email-slot="contact" data-email-subject="Hello VoxStarion">
+            <span class="config-placeholder">{{CONTACT_EMAIL}} — to be configured</span>
+          </p>
+        </article>
+        <!-- Game support -->
+        <article class="glass p-7">
+          <h2 class="font-display text-xl font-semibold">Game Support</h2>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Stuck, crashed, or found a bug? We're here.</p>
+          <p class="mt-4" data-email-slot="contact" data-email-subject="Game Support Request">
+            <span class="config-placeholder">{{CONTACT_EMAIL}} — to be configured</span>
+          </p>
+        </article>
+        <!-- Privacy requests -->
+        <article class="glass p-7">
+          <h2 class="font-display text-xl font-semibold">Privacy Requests</h2>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">Data questions, access, or deletion requests.</p>
+          <p class="mt-4" data-email-slot="privacy" data-email-subject="Privacy Request">
+            <span class="config-placeholder">{{PRIVACY_EMAIL}} — to be configured</span>
+          </p>
+        </article>
+      </div>
+
+      <!-- Support guidance -->
+      <div class="glass mx-auto mt-10 max-w-4xl p-7 sm:p-8">
+        <h2 class="font-display text-xl font-semibold">Before you write in</h2>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+          To help us help you faster, please include:
+        </p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-6 text-sm text-slate-600 dark:text-slate-400">
+          <li>The <strong>game name</strong> (e.g. Letter Rain) and app version, if you know it</li>
+          <li>Your <strong>device model</strong> and <strong>Android version</strong></li>
+          <li>A short <strong>description of the issue</strong> and the steps to reproduce it</li>
+          <li>Screenshots, if they help explain the problem</li>
+        </ul>
+        <p class="mt-4 rounded-lg bg-amber-500/10 border border-amber-500/30 p-3 text-sm text-amber-800 dark:text-amber-200">
+          Please never send passwords, payment details, or other sensitive personal data by email.
+        </p>
+        <p class="mt-4 text-xs text-slate-500 dark:text-slate-500">
+          Email addresses are configured by the site owner in <span class="font-mono">assets/js/config.js</span>. There is intentionally no web contact form — we don't operate a form backend, and we won't pretend to.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-site px-4 py-10 sm:px-6">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div class="max-w-sm">
+          <p class="font-display text-lg font-bold">VoxStarion</p>
+          <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Play Beyond. Learn Within.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <ul class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm">
+            <li><a href="index.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Home</a></li>
+            <li><a href="about.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">About</a></li>
+            <li><a href="privacy.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Terms of Service</a></li>
+            <li><a href="contact.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500">
+        © <span data-year>2026</span> VoxStarion. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
