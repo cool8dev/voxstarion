@@ -11,13 +11,13 @@
 
 window.VOXSTARION_CONFIG = {
   // Public support/contact email shown on contact.html
-  contactEmail: "",
+  contactEmail: "support@voxstarion.my.id",
 
   // Email for privacy-related requests (may be the same as contactEmail)
-  privacyEmail: "",
+  privacyEmail: "support@voxstarion.my.id",
 
   // Public site domain, e.g. "https://voxstarion.com" (no trailing slash)
-  siteDomain: "",
+  siteDomain: "https://voxstarion.my.id",
 
   // Google Play developer profile URL (only when verified)
   googlePlayDeveloperUrl: "",
