@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('voxstarion-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    /* Prevent language flash: set document language before first paint */
+    (function () {
+      try {
+        var l = localStorage.getItem('voxstarion-lang');
+        if (l !== 'id' && l !== 'en') {
+          l = (window.navigator.language || 'en').toLowerCase().indexOf('id') === 0 ? 'id' : 'en';
+        }
+        document.documentElement.lang = l;
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="VoxWords Privacy Policy — how VoxStarion handles information in the VoxWords mobile game: ads, purchases, and on-device data.">
+  <meta property="og:title" content="Privacy Policy for VoxWords — VoxStarion">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <title>Privacy Policy for VoxWords — VoxStarion</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/80">
+    <nav class="mx-auto flex max-w-site items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation" data-i18n-aria="a11y.main_nav">
+      <a href="./" class="flex items-center gap-2.5" data-i18n-aria="a11y.home_link" aria-label="VoxStarion home">
+        <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
+          <rect width="64" height="64" rx="14" fill="#020617"/>
+          <g fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-linecap="round">
+            <path d="M32 10 L39 25 L55 25 L42 34 L47 50 L32 40 L17 50 L22 34 L9 25 L25 25 Z" stroke-linejoin="round"/>
+          </g>
+          <circle cx="32" cy="32" r="3.2" fill="#2dd4bf"/>
+        </svg>
+        <span class="font-display text-xl font-bold tracking-tight">VoxStarion</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <a href="./" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.home">Home</a>
+        <a href="./#games" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.games">Games</a>
+        <a href="about" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.about">About</a>
+        <a href="contact" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <svg data-icon="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg data-icon="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button type="button" data-lang-toggle aria-label="Switch to Indonesian"
+                class="rounded-lg border border-slate-200 px-2.5 py-2 text-sm font-bold text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <span data-lang-label>ID</span>
+        </button>
+        <button type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="a11y.open_menu" aria-label="Open menu"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" data-menu class="hidden border-t border-slate-200 dark:border-slate-800 md:hidden">
+      <nav class="space-y-1 px-4 py-3" aria-label="Mobile navigation" data-i18n-aria="a11y.mobile_nav">
+        <a href="./" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.home">Home</a>
+        <a href="./#games" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.games">Games</a>
+        <a href="about" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.about">About</a>
+        <a href="contact" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="border-t border-slate-200 px-4 py-3 dark:border-slate-800">
+        <button type="button" data-lang-toggle aria-label="Switch to Indonesian"
+                class="flex w-full items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <span data-i18n="lang.language_label">Language</span>
+          <span data-lang-label class="font-bold">ID</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:py-16">
+      <p class="text-xs font-semibold tracking-widest text-teal-700 dark:text-teal-300">LEGAL &bull; VOXWORDS</p>
+      <h1 class="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+        <span data-policy-lang="en">Privacy Policy for VoxWords</span>
+        <span data-policy-lang="id" style="display:none">Kebijakan Privasi untuk VoxWords</span>
+      </h1>
+      <p class="mt-4 text-sm text-slate-500 dark:text-slate-400">
+        <span data-policy-lang="en">Effective date: 15 October 2026<br>Last updated: 15 October 2026</span>
+        <span data-policy-lang="id" style="display:none">Tanggal efektif: 15 Oktober 2026<br>Terakhir diperbarui: 15 Oktober 2026</span>
+      </p>
+      <div class="mt-6 inline-flex rounded-lg border border-slate-200 p-1 dark:border-slate-700" role="group" aria-label="Policy language">
+        <button type="button" data-policy-setlang="en" class="rounded-md px-4 py-1.5 text-sm font-bold">EN</button>
+        <button type="button" data-policy-setlang="id" class="rounded-md px-4 py-1.5 text-sm font-bold">ID</button>
+      </div>
+
+      <div class="glass mt-8 p-6">
+        <h2 class="font-display text-lg font-semibold">
+          <span data-policy-lang="en">Summary</span>
+          <span data-policy-lang="id" style="display:none">Ringkasan</span>
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-policy-lang="en">
+          VoxWords is a free word search game. We do not require accounts and we do not operate servers that store your personal data.
+          Your game progress and settings stay on your device. The game shows ads served by Google AdMob, which may collect device and
+          advertising identifiers as described below. Optional premium upgrades are processed securely by Google Play Billing.
+          If you have questions, contact <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>.
+        </p>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-policy-lang="id" style="display:none">
+          VoxWords adalah game cari kata gratis. Kami tidak mewajibkan pembuatan akun dan tidak mengoperasikan server yang menyimpan data pribadi Anda.
+          Progres permainan dan pengaturan Anda tersimpan di perangkat Anda. Game menampilkan iklan yang disajikan oleh Google AdMob, yang dapat mengumpulkan
+          pengenal perangkat dan pengenal iklan sebagaimana dijelaskan di bawah. Peningkatan premium opsional diproses secara aman oleh Google Play Billing.
+          Jika ada pertanyaan, hubungi <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>.
+        </p>
+      </div>
+
+      <nav class="glass mt-8 p-6" aria-label="Table of contents">
+        <h2 class="font-display text-lg font-semibold">
+          <span data-policy-lang="en">Contents</span>
+          <span data-policy-lang="id" style="display:none">Daftar Isi</span>
+        </h2>
+        <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-sm" data-policy-lang="en">
+          <li><a href="#scope-en">Who We Are and Scope</a></li>
+          <li><a href="#collect-en">Information We Collect</a></li>
+          <li><a href="#not-collect-en">Information We Do Not Collect</a></li>
+          <li><a href="#use-en">How We Use Information</a></li>
+          <li><a href="#ads-en">Advertising</a></li>
+          <li><a href="#purchases-en">In-App Purchases</a></li>
+          <li><a href="#children-en">Children's Privacy</a></li>
+          <li><a href="#sharing-en">Data Sharing</a></li>
+          <li><a href="#retention-en">Data Retention and Deletion</a></li>
+          <li><a href="#security-en">Security</a></li>
+          <li><a href="#transfers-en">International Data Transfers</a></li>
+          <li><a href="#rights-en">Your Rights and Choices</a></li>
+          <li><a href="#changes-en">Changes to This Policy</a></li>
+          <li><a href="#contact-en">Contact Us</a></li>
+        </ol>
+        <ol class="mt-3 list-decimal space-y-1.5 pl-5 text-sm" data-policy-lang="id" style="display:none">
+          <li><a href="#scope-id">Tentang Kami dan Ruang Lingkup</a></li>
+          <li><a href="#collect-id">Informasi yang Kami Kumpulkan</a></li>
+          <li><a href="#not-collect-id">Informasi yang Tidak Kami Kumpulkan</a></li>
+          <li><a href="#use-id">Cara Kami Menggunakan Informasi</a></li>
+          <li><a href="#ads-id">Periklanan</a></li>
+          <li><a href="#purchases-id">Pembelian Dalam Aplikasi</a></li>
+          <li><a href="#children-id">Privasi Anak</a></li>
+          <li><a href="#sharing-id">Pembagian Data</a></li>
+          <li><a href="#retention-id">Penyimpanan dan Penghapusan Data</a></li>
+          <li><a href="#security-id">Keamanan</a></li>
+          <li><a href="#transfers-id">Transfer Data Internasional</a></li>
+          <li><a href="#rights-id">Hak dan Pilihan Anda</a></li>
+          <li><a href="#changes-id">Perubahan atas Kebijakan Ini</a></li>
+          <li><a href="#contact-id">Hubungi Kami</a></li>
+        </ol>
+      </nav>
+
+      <div class="legal mt-4">
+        <section>
+          <h2 id="scope-en" data-policy-lang="en">1. Who We Are and Scope</h2>
+          <h2 id="scope-id" data-policy-lang="id" style="display:none">1. Tentang Kami dan Ruang Lingkup</h2>
+          <div data-policy-lang="en">
+            <p>VoxStarion (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is an independent game development studio. We publish VoxWords (&ldquo;the game&rdquo;), a free word search game for mobile devices.</p>
+            <p>This policy describes how information is handled in connection with VoxWords. It supplements our general Privacy Policy at <a href="privacy">voxstarion.my.id/privacy</a>, which covers this website and our games in general. Where the two policies differ for VoxWords, this policy takes precedence for the game.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxStarion (&ldquo;kami&rdquo;) adalah studio pengembangan game independen. Kami menerbitkan VoxWords (&ldquo;game&rdquo;), game cari kata gratis untuk perangkat seluler.</p>
+            <p>Kebijakan ini menjelaskan penanganan informasi sehubungan dengan VoxWords. Kebijakan ini melengkapi Kebijakan Privasi umum kami di <a href="privacy">voxstarion.my.id/privacy</a>, yang mencakup situs web ini dan game kami secara umum. Jika kedua kebijakan berbeda untuk VoxWords, kebijakan ini yang berlaku untuk game tersebut.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="collect-en" data-policy-lang="en">2. Information We Collect</h2>
+          <h2 id="collect-id" data-policy-lang="id" style="display:none">2. Informasi yang Kami Kumpulkan</h2>
+          <div data-policy-lang="en">
+            <p>VoxWords is designed to minimize data collection. The information involved falls into the categories below.</p>
+            <h3>a. On-device game data</h3>
+            <p>Level and stage progress, unlocked levels, hint balance, app language, and music and sound settings. This data is stored in the app&rsquo;s private storage on your device and is not sent to us.</p>
+            <h3>b. Advertising data (Google AdMob)</h3>
+            <p>Advertising ID, IP address, device identifiers and settings, approximate location derived from IP address, app and ad interaction data, and diagnostic data. This collection is performed by Google&rsquo;s SDK and is also governed by Google&rsquo;s Privacy Policy.</p>
+            <h3>c. Purchase data (Google Play Billing)</h3>
+            <p>When you buy VoxWords Premium, Google Play Billing processes the payment and provides the app with the purchase tokens and order status needed to unlock premium features. We do not receive or store your payment credentials.</p>
+            <h3>d. Support correspondence</h3>
+            <p>If you email <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>, we receive your email address and the contents of your message so we can respond.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxWords dirancang untuk meminimalkan pengumpulan data. Informasi yang terlibat termasuk dalam kategori berikut.</p>
+            <h3>a. Data game di perangkat</h3>
+            <p>Progres level dan <i>stage</i>, level yang terbuka, saldo petunjuk, bahasa aplikasi, serta pengaturan musik dan suara. Data ini disimpan di penyimpanan privat aplikasi pada perangkat Anda dan tidak dikirimkan kepada kami.</p>
+            <h3>b. Data periklanan (Google AdMob)</h3>
+            <p><i>Advertising ID</i>, alamat IP, pengenal dan pengaturan perangkat, perkiraan lokasi yang diturunkan dari alamat IP, data interaksi aplikasi dan iklan, serta data diagnostik. Pengumpulan ini dilakukan oleh <i>SDK</i> Google dan juga tunduk pada Kebijakan Privasi Google.</p>
+            <h3>c. Data pembelian (Google Play Billing)</h3>
+            <p>Saat Anda membeli VoxWords Premium, Google Play Billing memproses pembayaran dan memberikan token pembelian serta status pesanan yang diperlukan aplikasi untuk membuka fitur premium. Kami tidak menerima atau menyimpan kredensial pembayaran Anda.</p>
+            <h3>d. Korespondensi dukungan</h3>
+            <p>Jika Anda mengirim email ke <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>, kami menerima alamat email dan isi pesan Anda agar dapat merespons.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="not-collect-en" data-policy-lang="en">3. Information We Do Not Collect</h2>
+          <h2 id="not-collect-id" data-policy-lang="id" style="display:none">3. Informasi yang Tidak Kami Kumpulkan</h2>
+          <div data-policy-lang="en">
+            <p>VoxWords does not require an account and does not ask for your name. We do not collect your email address (unless you contact us), phone number, precise location, contacts, photos, or files. VoxWords does not include analytics SDKs or crash-reporting SDKs.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxWords tidak mewajibkan akun dan tidak meminta nama Anda. Kami tidak mengumpulkan alamat email Anda (kecuali jika Anda menghubungi kami), nomor telepon, lokasi presisi, kontak, foto, atau berkas. VoxWords tidak menyertakan <i>SDK</i> analitik atau <i>SDK</i> pelaporan <i>crash</i>.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="use-en" data-policy-lang="en">4. How We Use Information</h2>
+          <h2 id="use-id" data-policy-lang="id" style="display:none">4. Cara Kami Menggunakan Informasi</h2>
+          <div data-policy-lang="en">
+            <p>We use the information described above to:</p>
+            <ul>
+              <li>operate the game and keep your progress on your device;</li>
+              <li>serve and measure ads through Google AdMob;</li>
+              <li>process, verify, and restore premium purchases;</li>
+              <li>respond to support requests;</li>
+              <li>comply with legal obligations and enforce our terms.</li>
+            </ul>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Kami menggunakan informasi yang dijelaskan di atas untuk:</p>
+            <ul>
+              <li>mengoperasikan game dan menyimpan progres Anda di perangkat Anda;</li>
+              <li>menayangkan dan mengukur iklan melalui Google AdMob;</li>
+              <li>memproses, memverifikasi, dan memulihkan pembelian premium;</li>
+              <li>merespons permintaan dukungan;</li>
+              <li>mematuhi kewajiban hukum dan menegakkan ketentuan kami.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="ads-en" data-policy-lang="en">5. Advertising</h2>
+          <h2 id="ads-id" data-policy-lang="id" style="display:none">5. Periklanan</h2>
+          <div data-policy-lang="en">
+            <p>VoxWords is supported by advertising served through Google AdMob, in interstitial, rewarded, and native formats.</p>
+            <p>Google may use the advertising ID and the data described in Section 2 to deliver personalized or non-personalized ads and to measure ad performance. You can manage ad personalization on Android in Settings, Privacy, Ads, where you can opt out of ad personalization and reset your advertising ID. Google&rsquo;s handling of advertising data is described in Google&rsquo;s Privacy Policy and advertising privacy documentation.</p>
+            <p>Buying VoxWords Premium (a one-time purchase) removes ads from the game.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxWords didukung oleh iklan yang disajikan melalui Google AdMob, dalam format <i>interstitial</i>, <i>rewarded</i>, dan <i>native</i>.</p>
+            <p>Google dapat menggunakan <i>advertising ID</i> dan data yang dijelaskan pada Bagian 2 untuk menampilkan iklan yang dipersonalisasi atau tidak dipersonalisasi serta mengukur kinerja iklan. Anda dapat mengelola personalisasi iklan di Android melalui Pengaturan, Privasi, Iklan, tempat Anda dapat memilih keluar dari personalisasi iklan dan mengatur ulang <i>advertising ID</i> Anda. Penanganan data periklanan oleh Google dijelaskan dalam Kebijakan Privasi Google dan dokumentasi privasi periklanannya.</p>
+            <p>Membeli VoxWords Premium (pembelian satu kali) akan menghapus iklan dari game.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="purchases-en" data-policy-lang="en">6. In-App Purchases</h2>
+          <h2 id="purchases-id" data-policy-lang="id" style="display:none">6. Pembelian Dalam Aplikasi</h2>
+          <div data-policy-lang="en">
+            <p>VoxWords offers an optional one-time purchase, VoxWords Premium, which removes ads and unlocks all levels. Payments are processed by Google Play Billing under Google&rsquo;s terms and refund policies. We receive only the purchase confirmation needed to grant and restore premium status.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxWords menawarkan pembelian opsional satu kali, VoxWords Premium, yang menghapus iklan dan membuka semua level. Pembayaran diproses oleh Google Play Billing sesuai ketentuan dan kebijakan pengembalian dana Google. Kami hanya menerima konfirmasi pembelian yang diperlukan untuk memberikan dan memulihkan status premium.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="children-en" data-policy-lang="en">7. Children&rsquo;s Privacy</h2>
+          <h2 id="children-id" data-policy-lang="id" style="display:none">7. Privasi Anak</h2>
+          <div data-policy-lang="en">
+            <p>VoxWords is a general-audience word game and is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
+            <p>If you are a parent or guardian and believe your child has provided personal information in connection with the game, contact us at <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> and we will take appropriate steps. Parents can also use device-level parental controls and advertising settings.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>VoxWords adalah game kata untuk khalayak umum dan tidak ditujukan untuk anak di bawah usia 13 tahun. Kami tidak secara sadar mengumpulkan informasi pribadi dari anak di bawah usia 13 tahun.</p>
+            <p>Jika Anda adalah orang tua atau wali dan meyakini anak Anda telah memberikan informasi pribadi sehubungan dengan game, hubungi kami di <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> dan kami akan mengambil langkah yang tepat. Orang tua juga dapat menggunakan kontrol orang tua di tingkat perangkat dan pengaturan periklanan.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="sharing-en" data-policy-lang="en">8. Data Sharing</h2>
+          <h2 id="sharing-id" data-policy-lang="id" style="display:none">8. Pembagian Data</h2>
+          <div data-policy-lang="en">
+            <p>We share information only in these cases:</p>
+            <ul>
+              <li>with Google as a service provider, for advertising (Google AdMob) and payments (Google Play Billing), under Google&rsquo;s terms;</li>
+              <li>when required by law, regulation, or legal process, or to protect the rights, safety, and property of VoxStarion, our users, or others;</li>
+              <li>in connection with a merger, acquisition, or sale of assets, with notice where required by law.</li>
+            </ul>
+            <p>We do not sell personal information, and we do not share information with data brokers.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Kami membagikan informasi hanya dalam hal berikut:</p>
+            <ul>
+              <li>kepada Google sebagai penyedia layanan, untuk periklanan (Google AdMob) dan pembayaran (Google Play Billing), sesuai ketentuan Google;</li>
+              <li>apabila diwajibkan oleh hukum, regulasi, atau proses hukum, atau untuk melindungi hak, keamanan, dan properti VoxStarion, pengguna kami, atau pihak lain;</li>
+              <li>sehubungan dengan merger, akuisisi, atau penjualan aset, dengan pemberitahuan sebagaimana diwajibkan hukum.</li>
+            </ul>
+            <p>Kami tidak menjual informasi pribadi, dan kami tidak membagikan informasi kepada perantara data (<i>data broker</i>).</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="retention-en" data-policy-lang="en">9. Data Retention and Deletion</h2>
+          <h2 id="retention-id" data-policy-lang="id" style="display:none">9. Penyimpanan dan Penghapusan Data</h2>
+          <div data-policy-lang="en">
+            <p>On-device game data is kept until you clear the app&rsquo;s data or uninstall the game. Data collected by Google AdMob and Google Play Billing is retained according to Google&rsquo;s policies.</p>
+            <p>Because we do not operate servers that store your personal data, deleting the app&rsquo;s data or uninstalling the game removes the information we hold about your gameplay. For requests about any other information we may hold (for example, support emails), contact <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> and we will respond within a reasonable time.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Data game di perangkat disimpan hingga Anda menghapus data aplikasi atau mencopot pemasangan game. Data yang dikumpulkan oleh Google AdMob dan Google Play Billing disimpan sesuai kebijakan Google.</p>
+            <p>Karena kami tidak mengoperasikan server yang menyimpan data pribadi Anda, menghapus data aplikasi atau mencopot pemasangan game akan menghapus informasi tentang permainan Anda yang kami pegang. Untuk permintaan mengenai informasi lain yang mungkin kami pegang (misalnya, email dukungan), hubungi <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> dan kami akan merespons dalam waktu yang wajar.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="security-en" data-policy-lang="en">10. Security</h2>
+          <h2 id="security-id" data-policy-lang="id" style="display:none">10. Keamanan</h2>
+          <div data-policy-lang="en">
+            <p>Data transmitted by the game&rsquo;s third-party SDKs is protected with TLS encryption in transit. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Data yang dikirimkan oleh <i>SDK</i> pihak ketiga game dilindungi dengan enkripsi TLS selama pengiriman. Tidak ada metode transmisi atau penyimpanan yang sepenuhnya aman, dan kami tidak dapat menjamin keamanan mutlak.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="transfers-en" data-policy-lang="en">11. International Data Transfers</h2>
+          <h2 id="transfers-id" data-policy-lang="id" style="display:none">11. Transfer Data Internasional</h2>
+          <div data-policy-lang="en">
+            <p>Google may process advertising and purchase-related data on servers located outside your country, under Google&rsquo;s data protection terms.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Google dapat memproses data terkait periklanan dan pembelian di server yang berlokasi di luar negara Anda, sesuai ketentuan perlindungan data Google.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="rights-en" data-policy-lang="en">12. Your Rights and Choices</h2>
+          <h2 id="rights-id" data-policy-lang="id" style="display:none">12. Hak dan Pilihan Anda</h2>
+          <div data-policy-lang="en">
+            <p>Depending on where you live, you may have rights to access, correct, delete, or restrict the processing of your personal data, and to withdraw consent where processing is based on consent.</p>
+            <p>Controls available to everyone:</p>
+            <ul>
+              <li>manage ad personalization and reset your advertising ID in Android Settings, Privacy, Ads;</li>
+              <li>clear the app&rsquo;s data or uninstall the game to delete on-device information;</li>
+              <li>contact <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> for any privacy request, and we will respond within a reasonable time.</li>
+            </ul>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Bergantung pada tempat tinggal Anda, Anda mungkin memiliki hak untuk mengakses, mengoreksi, menghapus, atau membatasi pemrosesan data pribadi Anda, serta menarik persetujuan apabila pemrosesan didasarkan pada persetujuan.</p>
+            <p>Kontrol yang tersedia untuk semua orang:</p>
+            <ul>
+              <li>kelola personalisasi iklan dan atur ulang <i>advertising ID</i> Anda di Pengaturan Android, Privasi, Iklan;</li>
+              <li>hapus data aplikasi atau copot pemasangan game untuk menghapus informasi di perangkat;</li>
+              <li>hubungi <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a> untuk setiap permintaan privasi, dan kami akan merespons dalam waktu yang wajar.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="changes-en" data-policy-lang="en">13. Changes to This Policy</h2>
+          <h2 id="changes-id" data-policy-lang="id" style="display:none">13. Perubahan atas Kebijakan Ini</h2>
+          <div data-policy-lang="en">
+            <p>We may update this policy as VoxWords evolves, for example if we add features or third-party services. Material changes will be reflected in the &ldquo;Last updated&rdquo; date above, and where required we will provide additional notice through the game or the store listing. Your continued use of the game after changes take effect constitutes acceptance of the updated policy.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Kami dapat memperbarui kebijakan ini seiring perkembangan VoxWords, misalnya jika kami menambah fitur atau layanan pihak ketiga. Perubahan material akan tercermin pada tanggal &ldquo;Terakhir diperbarui&rdquo; di atas, dan apabila diwajibkan kami akan memberikan pemberitahuan tambahan melalui game atau halaman toko. Penggunaan game secara berkelanjutan setelah perubahan berlaku merupakan penerimaan atas kebijakan yang diperbarui.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 id="contact-en" data-policy-lang="en">14. Contact Us</h2>
+          <h2 id="contact-id" data-policy-lang="id" style="display:none">14. Hubungi Kami</h2>
+          <div data-policy-lang="en">
+            <p>For privacy questions or requests, contact us at <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>. You can also reach us through our <a href="contact">contact page</a>.</p>
+          </div>
+          <div data-policy-lang="id" style="display:none">
+            <p>Untuk pertanyaan atau permintaan privasi, hubungi kami di <a href="mailto:support@voxstarion.my.id">support@voxstarion.my.id</a>. Anda juga dapat menghubungi kami melalui <a href="contact">halaman kontak</a>.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-site px-4 py-10 sm:px-6">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div class="max-w-sm">
+          <p class="font-display text-lg font-bold">VoxStarion</p>
+          <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Play Beyond. Learn Within.</p>
+        </div>
+        <nav aria-label="Footer navigation" data-i18n-aria="a11y.footer_nav">
+          <ul class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm">
+            <li><a href="./" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400" data-i18n="footer.home">Home</a></li>
+            <li><a href="about" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400" data-i18n="footer.about">About</a></li>
+            <li><a href="privacy" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400" data-i18n="footer.privacy">Privacy Policy</a></li>
+            <li><a href="terms" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400" data-i18n="footer.terms">Terms of Service</a></li>
+            <li><a href="contact" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400" data-i18n="footer.contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500" data-i18n-html="footer.rights">
+        © <span data-year>2026</span> VoxStarion. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script>
+    /* VoxWords policy language: follows the site's voxstarion-lang setting. */
+    (function () {
+      function currentLang() {
+        try {
+          var l = localStorage.getItem('voxstarion-lang');
+          if (l === 'id' || l === 'en') return l;
+        } catch (e) {}
+        var d = document.documentElement.lang;
+        return d === 'id' ? 'id' : 'en';
+      }
+      function paintButtons(l) {
+        document.querySelectorAll('[data-policy-setlang]').forEach(function (b) {
+          var active = b.getAttribute('data-policy-setlang') === l;
+          b.classList.toggle('bg-teal-600', active);
+          b.classList.toggle('text-white', active);
+          b.classList.toggle('text-slate-500', !active);
+          b.classList.toggle('dark:text-slate-400', !active);
+        });
+      }
+      function applyPolicyLang() {
+        var l = currentLang();
+        document.querySelectorAll('[data-policy-lang]').forEach(function (el) {
+          el.style.display = el.getAttribute('data-policy-lang') === l ? '' : 'none';
+        });
+        paintButtons(l);
+      }
+      function setPolicyLang(l) {
+        try { localStorage.setItem('voxstarion-lang', l); } catch (e) {}
+        document.documentElement.lang = l;
+        applyPolicyLang();
+        document.querySelectorAll('[data-lang-label]').forEach(function (el) {
+          el.textContent = l === 'id' ? 'EN' : 'ID';
+        });
+      }
+      document.querySelectorAll('[data-policy-setlang]').forEach(function (b) {
+        b.addEventListener('click', function () { setPolicyLang(b.getAttribute('data-policy-setlang')); });
+      });
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('[data-lang-toggle]')) setTimeout(applyPolicyLang, 60);
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyPolicyLang);
+      } else {
+        applyPolicyLang();
+      }
+    })();
+  </script>
+</body>
+</html>
