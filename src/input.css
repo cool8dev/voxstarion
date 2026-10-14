@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- VoxStarion design system extras ---------- */
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-body bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Smooth theme transitions (disabled when reduced motion is preferred) */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, fill 0.25s ease, stroke 0.25s ease;
+}
+
+/* Skip-to-content link */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100]
+         focus:rounded-lg focus:bg-teal-600 focus:px-4 focus:py-2 focus:text-white focus:font-semibold;
+}
+
+/* Visible, consistent keyboard focus */
+:focus-visible {
+  outline: 3px solid #2dd4bf;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.dark :focus-visible {
+  outline-color: #2dd4bf;
+}
+
+/* Fine grid texture for hero / dark sections */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Gentle radial glow */
+.glow-teal {
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(45, 212, 191, 0.14), transparent 70%);
+}
+.dark .glow-teal {
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(45, 212, 191, 0.10), transparent 70%);
+}
+
+/* Glass panel */
+.glass {
+  @apply rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-md
+         dark:border-slate-700/50 dark:bg-slate-900/70;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.06);
+}
+.dark .glass {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Legal page typography */
+.legal h2 {
+  @apply font-display text-xl sm:text-2xl font-bold mt-10 mb-3 scroll-mt-24;
+}
+.legal h3 {
+  @apply font-display text-lg font-semibold mt-6 mb-2;
+}
+.legal p, .legal li {
+  @apply text-slate-600 dark:text-slate-400 leading-relaxed;
+}
+.legal p { @apply mb-4; }
+.legal ul { @apply list-disc pl-6 mb-4 space-y-1; }
+.legal ol { @apply list-decimal pl-6 mb-4 space-y-1; }
+.legal a { @apply text-teal-700 dark:text-teal-400 underline underline-offset-2; }
+
+/* Placeholder chip for unresolved config values */
+.config-placeholder {
+  @apply inline-flex items-center rounded-md border border-dashed border-amber-500/60
+         bg-amber-500/10 px-2 py-0.5 font-mono text-xs text-amber-700 dark:text-amber-300;
+}
+
+/* Status badge */
+.badge {
+  @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide;
+}
+.badge-testing { @apply bg-teal-500/15 text-teal-700 dark:text-teal-300 border border-teal-500/30; }
+.badge-dev { @apply bg-slate-500/15 text-slate-600 dark:text-slate-300 border border-slate-500/30; }
+.badge-soon { @apply bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
+    transition: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
