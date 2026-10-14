@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    /* Prevent theme flash: apply stored preference before first paint */
+    (function () {
+      try {
+        var t = localStorage.getItem('voxstarion-theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="VoxStarion is an independent game studio crafting small, delightful games that spark curiosity. Play Beyond. Learn Within.">
+  <meta property="og:title" content="VoxStarion — Play Beyond. Learn Within.">
+  <meta property="og:description" content="An independent game studio making playful experiences that spark curiosity.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <title>VoxStarion — Play Beyond. Learn Within.</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="min-h-screen flex flex-col">
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============ Header / Navigation ============ -->
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/80">
+    <nav class="mx-auto flex max-w-site items-center justify-between px-4 py-3 sm:px-6" aria-label="Main navigation">
+      <a href="index.html" class="flex items-center gap-2.5" aria-label="VoxStarion home">
+        <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" class="shrink-0">
+          <rect width="64" height="64" rx="14" fill="#020617"/>
+          <g fill="none" stroke="#2dd4bf" stroke-width="3.5" stroke-linecap="round">
+            <path d="M32 10 L39 25 L55 25 L42 34 L47 50 L32 40 L17 50 L22 34 L9 25 L25 25 Z" stroke-linejoin="round"/>
+          </g>
+          <circle cx="32" cy="32" r="3.2" fill="#2dd4bf"/>
+        </svg>
+        <span class="font-display text-xl font-bold tracking-tight">VoxStarion</span>
+      </a>
+
+      <div class="hidden items-center gap-1 md:flex">
+        <a href="index.html" class="rounded-lg px-3 py-2 text-sm font-medium text-teal-700 dark:text-teal-300" aria-current="page">Home</a>
+        <a href="#games" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Games</a>
+        <a href="about.html" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">About</a>
+        <a href="contact.html" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+          <svg data-icon="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+          </svg>
+          <svg data-icon="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="hidden">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+        </button>
+        <button type="button" data-menu-button aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"
+                class="rounded-lg border border-slate-200 p-2 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 md:hidden">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" data-menu class="hidden border-t border-slate-200 dark:border-slate-800 md:hidden">
+      <nav class="space-y-1 px-4 py-3" aria-label="Mobile navigation">
+        <a href="index.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-teal-700 dark:text-teal-300" aria-current="page">Home</a>
+        <a href="#games" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Games</a>
+        <a href="about.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">About</a>
+        <a href="contact.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <!-- ============ Hero ============ -->
+    <section class="bg-grid glow-teal relative overflow-hidden">
+      <div class="mx-auto grid max-w-site items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+        <div>
+          <p class="mb-4 inline-flex items-center rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-semibold tracking-widest text-teal-700 dark:text-teal-300">
+            INDEPENDENT GAME STUDIO
+          </p>
+          <h1 class="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            Play Beyond.<br>
+            <span class="text-teal-600 dark:text-teal-400">Learn Within.</span>
+          </h1>
+          <p class="mt-6 max-w-lg text-lg text-slate-600 dark:text-slate-400">
+            Small games. Big discoveries. We create playful experiences that spark curiosity and make every moment of play meaningful.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#games" class="rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition hover:bg-teal-500 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-slate-950">
+              Explore Our Games
+            </a>
+            <a href="about.html" class="rounded-xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">
+              Meet VoxStarion
+            </a>
+          </div>
+        </div>
+        <div class="relative" aria-hidden="true">
+          <svg viewBox="0 0 480 380" class="mx-auto w-full max-w-md" role="presentation">
+            <defs>
+              <radialGradient id="heroGlow" cx="0.5" cy="0.45" r="0.6">
+                <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.22"/>
+                <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="480" height="380" fill="url(#heroGlow)" rx="24"/>
+            <g fill="none" stroke="#2dd4bf" stroke-width="2.5" opacity="0.9">
+              <circle cx="240" cy="190" r="110"/>
+              <circle cx="240" cy="190" r="72" opacity="0.55"/>
+              <ellipse cx="240" cy="190" rx="150" ry="46" opacity="0.5" transform="rotate(-16 240 190)"/>
+              <ellipse cx="240" cy="190" rx="150" ry="46" opacity="0.3" transform="rotate(22 240 190)"/>
+            </g>
+            <g fill="#2dd4bf">
+              <circle cx="240" cy="190" r="9"/>
+              <circle cx="352" cy="128" r="5" opacity="0.8"/>
+              <circle cx="140" cy="252" r="4" opacity="0.7"/>
+              <circle cx="300" cy="290" r="3.5" opacity="0.6"/>
+            </g>
+            <g stroke="#94a3b8" stroke-width="2" opacity="0.55">
+              <rect x="88" y="70" width="26" height="26" fill="none" transform="rotate(12 101 83)"/>
+              <rect x="368" y="286" width="22" height="22" fill="#2dd4bf" fill-opacity="0.25" transform="rotate(-10 379 297)"/>
+              <path d="M120 320 l14 -24 14 24 z" fill="none"/>
+            </g>
+            <g fill="#e2e8f0" opacity="0.85">
+              <circle cx="70" cy="150" r="2.5"/><circle cx="420" cy="90" r="2"/>
+              <circle cx="200" cy="60" r="2"/><circle cx="440" cy="220" r="2.5"/>
+              <circle cx="100" cy="90" r="1.8"/><circle cx="330" cy="340" r="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Values ============ -->
+    <section class="mx-auto max-w-site px-4 py-16 sm:px-6 lg:py-20" aria-labelledby="values-heading">
+      <h2 id="values-heading" class="font-display text-center text-3xl font-bold tracking-tight">What Drives Our Games</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-center text-slate-600 dark:text-slate-400">
+        Three simple ideas shape everything we build.
+      </p>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <article class="glass p-7">
+          <div class="mb-4 inline-flex rounded-xl bg-teal-500/15 p-3 text-teal-600 dark:text-teal-400" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold">Fun First</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">We believe the best experiences start with pure enjoyment.</p>
+        </article>
+        <article class="glass p-7">
+          <div class="mb-4 inline-flex rounded-xl bg-teal-500/15 p-3 text-teal-600 dark:text-teal-400" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold">Curiosity Always</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">Every challenge is a chance to explore, discover, and grow.</p>
+        </article>
+        <article class="glass p-7">
+          <div class="mb-4 inline-flex rounded-xl bg-teal-500/15 p-3 text-teal-600 dark:text-teal-400" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+          </div>
+          <h3 class="font-display text-xl font-semibold">Made for Everyone</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">Thoughtful games designed to be approachable and rewarding.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Games showcase ============ -->
+    <!-- Game data source: assets/js/config.js (edit status/URLs there) -->
+    <section id="games" class="border-y border-slate-200 bg-slate-100/60 dark:border-slate-800 dark:bg-slate-900/40" aria-labelledby="games-heading">
+      <div class="mx-auto max-w-site px-4 py-16 sm:px-6 lg:py-20">
+        <h2 id="games-heading" class="font-display text-center text-3xl font-bold tracking-tight">Our Games</h2>
+        <p class="mx-auto mt-3 max-w-2xl text-center text-slate-600 dark:text-slate-400">
+          Little worlds worth exploring — each one crafted to be easy to pick up and hard to put down.
+        </p>
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          <!-- Letter Rain -->
+          <article class="glass flex flex-col overflow-hidden">
+            <div class="bg-grid relative flex h-40 items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 dark:from-slate-800 dark:to-teal-900" aria-hidden="true">
+              <svg width="72" height="72" viewBox="0 0 72 72" class="text-teal-300">
+                <g fill="currentColor" opacity="0.9">
+                  <rect x="8" y="6" width="10" height="14" rx="2"/><rect x="24" y="2" width="10" height="14" rx="2" opacity="0.7"/>
+                  <rect x="40" y="8" width="10" height="14" rx="2" opacity="0.85"/><rect x="54" y="4" width="10" height="14" rx="2" opacity="0.6"/>
+                </g>
+                <g fill="none" stroke="currentColor" stroke-width="2" opacity="0.5">
+                  <path d="M13 26v10M29 22v12M45 28v10M59 24v12"/>
+                </g>
+                <text x="36" y="58" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="currentColor">A</text>
+              </svg>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-semibold">Letter Rain</h3>
+                <span class="badge badge-testing">In Testing</span>
+              </div>
+              <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
+                A fast, casual word and trivia challenge. Catch falling letters, build words, and beat the clock.
+              </p>
+              <dl class="mt-4 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex gap-2"><dt class="font-semibold">Genre:</dt><dd>Word · Trivia · Casual</dd></div>
+                <div class="flex gap-2"><dt class="font-semibold">Platform:</dt><dd>Android</dd></div>
+              </dl>
+              <p class="mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">Status: in testing — public release coming soon.</p>
+            </div>
+          </article>
+          <!-- Letter Snake -->
+          <article class="glass flex flex-col overflow-hidden">
+            <div class="bg-grid relative flex h-40 items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 dark:from-slate-800 dark:to-teal-900" aria-hidden="true">
+              <svg width="96" height="72" viewBox="0 0 96 72" class="text-teal-300">
+                <g fill="currentColor">
+                  <rect x="6" y="28" width="14" height="14" rx="3"/>
+                  <rect x="22" y="28" width="14" height="14" rx="3" opacity="0.8"/>
+                  <rect x="38" y="28" width="14" height="14" rx="3" opacity="0.65"/>
+                  <rect x="54" y="28" width="14" height="14" rx="3" opacity="0.5"/>
+                  <rect x="54" y="12" width="14" height="14" rx="3" opacity="0.4"/>
+                </g>
+                <circle cx="13" cy="33" r="2" fill="#020617"/><circle cx="13" cy="37" r="2" fill="#020617"/>
+                <text x="76" y="46" font-family="monospace" font-size="22" font-weight="bold" fill="currentColor">?</text>
+              </svg>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-semibold">Letter Snake</h3>
+                <span class="badge badge-dev">In Development</span>
+              </div>
+              <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
+                Retro snake meets word and trivia puzzles. Gobble letters, solve clues, and grow your streak.
+              </p>
+              <dl class="mt-4 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex gap-2"><dt class="font-semibold">Genre:</dt><dd>Arcade · Word · Puzzle</dd></div>
+                <div class="flex gap-2"><dt class="font-semibold">Platform:</dt><dd>Android</dd></div>
+              </dl>
+              <p class="mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">Status: in development.</p>
+            </div>
+          </article>
+          <!-- Sketch Squadron -->
+          <article class="glass flex flex-col overflow-hidden">
+            <div class="bg-grid relative flex h-40 items-center justify-center bg-gradient-to-br from-slate-800 to-teal-700 dark:from-slate-800 dark:to-teal-900" aria-hidden="true">
+              <svg width="96" height="72" viewBox="0 0 96 72" class="text-teal-300">
+                <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+                  <path d="M48 8 L62 34 L48 28 L34 34 Z"/>
+                  <path d="M48 28 v26" opacity="0.7"/>
+                  <path d="M20 14 l6 8 M76 14 l-6 8" opacity="0.6"/>
+                </g>
+                <g fill="currentColor" opacity="0.55">
+                  <circle cx="24" cy="52" r="2.5"/><circle cx="72" cy="52" r="2.5"/><circle cx="48" cy="62" r="2.5"/>
+                </g>
+              </svg>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <div class="flex items-center justify-between gap-2">
+                <h3 class="font-display text-xl font-semibold">Sketch Squadron</h3>
+                <span class="badge badge-dev">In Development</span>
+              </div>
+              <p class="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
+                A pencil-sketch arcade shooter. Pilot a hand-drawn squadron through waves of doodled danger.
+              </p>
+              <dl class="mt-4 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex gap-2"><dt class="font-semibold">Genre:</dt><dd>Arcade · Shooter</dd></div>
+                <div class="flex gap-2"><dt class="font-semibold">Platform:</dt><dd>Android</dd></div>
+              </dl>
+              <p class="mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">Status: in development.</p>
+            </div>
+          </article>
+        </div>
+        <p class="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+          Release status is updated as development progresses. No Google Play listings yet — check back soon.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Philosophy ============ -->
+    <section class="mx-auto max-w-site px-4 py-16 sm:px-6 lg:py-20" aria-labelledby="philosophy-heading">
+      <div class="glass glow-teal mx-auto max-w-3xl p-8 text-center sm:p-12">
+        <h2 id="philosophy-heading" class="font-display text-3xl font-bold tracking-tight">Fun First. Learn Naturally.</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-slate-600 dark:text-slate-400">
+          We believe discovery feels best when it happens through play. Our games invite people to experiment, think, smile, and try again — without turning fun into homework.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Final CTA ============ -->
+    <section class="mx-auto max-w-site px-4 pb-20 sm:px-6" aria-labelledby="cta-heading">
+      <div class="rounded-3xl bg-gradient-to-br from-slate-800 to-teal-700 px-8 py-14 text-center dark:from-slate-800 dark:to-teal-900 sm:px-12">
+        <h2 id="cta-heading" class="font-display text-3xl font-bold tracking-tight text-white">Curious about what's next?</h2>
+        <p class="mx-auto mt-3 max-w-xl text-slate-200">
+          Follow our journey, share feedback, or just say hello — we'd love to hear from you.
+        </p>
+        <a href="contact.html" class="mt-8 inline-block rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-lg transition hover:bg-slate-100">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="border-t border-slate-200 dark:border-slate-800">
+    <div class="mx-auto max-w-site px-4 py-10 sm:px-6">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div class="max-w-sm">
+          <p class="font-display text-lg font-bold">VoxStarion</p>
+          <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Play Beyond. Learn Within.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <ul class="grid grid-cols-2 gap-x-12 gap-y-2 text-sm">
+            <li><a href="index.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Home</a></li>
+            <li><a href="about.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">About</a></li>
+            <li><a href="privacy.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Terms of Service</a></li>
+            <li><a href="contact.html" class="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:text-slate-500">
+        © <span data-year>2026</span> VoxStarion. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/config.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
