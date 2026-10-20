@@ -1,11 +1,11 @@
-/* VoxStarion site configuration — OWNER: fill these in before launch.
+/* VoxStarion site configuration - OWNER: fill these in before launch.
  *
  * How to use:
  *  1. Replace each "" value below with the real value.
  *  2. Leave a value as "" to keep its "forthcoming / to be configured"
  *     placeholder visible on the site instead of a broken link.
  *  3. Do NOT commit real private emails to a public repo if the repo
- *     itself is public and you prefer privacy — but the contact page
+ *     itself is public and you prefer privacy - but the contact page
  *     needs a real public support address before Google Play review.
  */
 
