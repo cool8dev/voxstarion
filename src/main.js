@@ -1,4 +1,4 @@
-/* VoxStarion — vanilla JS: theme toggle + mobile navigation.
+/* VoxStarion - vanilla JS: theme toggle + mobile navigation.
    No frameworks. No analytics. No cookies. */
 
 (function () {
@@ -19,7 +19,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, theme);
     } catch (e) {
-      /* storage unavailable — theme still applies for this session */
+      /* storage unavailable - theme still applies for this session */
     }
   }
 
