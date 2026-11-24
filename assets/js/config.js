@@ -22,11 +22,9 @@ window.VOXSTARION_CONFIG = {
   // Google Play developer profile URL (only when verified)
   googlePlayDeveloperUrl: "",
 
-  // Per-game data. status: "In Testing" | "In Development" | "Coming Soon"
+  // Per-game data. status: "Available on Google Play" | "In Testing" | "In Development" | "Coming Soon"
   // googlePlayUrl: full store listing URL, or "" to show status badge only.
   games: [
-    { name: "Letter Rain", status: "In Testing", googlePlayUrl: "" },
-    { name: "Letter Snake", status: "In Development", googlePlayUrl: "" },
-    { name: "Sketch Squadron", status: "In Development", googlePlayUrl: "" },
+    { name: "VoxWords", status: "Available on Google Play", googlePlayUrl: "https://play.google.com/store/apps/details?id=my.id.voxstarion.voxwords" },
   ],
 };
