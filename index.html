@@ -61,6 +61,8 @@
         <a href="#games" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.games">Games</a>
         <a href="about" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.about">About</a>
         <a href="contact" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.contact">Contact</a>
+        <a href="privacy" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.privacy">Privacy</a>
+        <a href="terms" class="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.terms">Terms</a>
       </div>
 
       <div class="flex items-center gap-2">
@@ -92,6 +94,8 @@
         <a href="#games" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.games">Games</a>
         <a href="about" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.about">About</a>
         <a href="contact" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.contact">Contact</a>
+        <a href="privacy" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.privacy">Privacy</a>
+        <a href="terms" class="block rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800" data-i18n="nav.terms">Terms</a>
       </nav>
       <div class="border-t border-slate-200 px-4 py-3 dark:border-slate-800">
         <button type="button" data-lang-toggle aria-label="Switch to Indonesian"
@@ -200,22 +204,20 @@
       <div class="mx-auto max-w-site px-4 py-16 sm:px-6 lg:py-20">
         <h2 id="games-heading" class="font-display text-center text-3xl font-bold tracking-tight" data-i18n="home.games_heading">Our Games</h2>
         <p class="mx-auto mt-3 max-w-2xl text-center text-slate-600 dark:text-slate-400" data-i18n="home.games_sub">
-          Little worlds worth exploring, each one crafted to be easy to pick up and hard to put down.
+          Our first game is out now. More little worlds are on the way.
         </p>
         <div class="mx-auto mt-10 max-w-2xl">
-          <div class="glass p-10 text-center sm:p-12">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-600/10 text-teal-600 dark:bg-teal-400/10 dark:text-teal-400" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17.3 5H6.7a4.7 4.7 0 0 0-4.6 5.6l.9 4.6A3 3 0 0 0 6 17.6c.8 0 1.6-.3 2.1-.9L9.4 15h5.2l1.3 1.7c.5.6 1.3.9 2.1.9a3 3 0 0 0 3-2.4l.9-4.6A4.7 4.7 0 0 0 17.3 5Z"/>
-                <path d="M6.5 9.5h3M8 8v3"/>
-                <circle cx="15.5" cy="10.5" r="1.1" fill="currentColor" stroke="none"/>
-                <circle cx="17.8" cy="12.8" r="1.1" fill="currentColor" stroke="none"/>
-              </svg>
-            </div>
-            <h3 class="font-display mt-6 text-2xl font-semibold tracking-tight" data-i18n="home.games_empty_title">First games in the making</h3>
-            <p class="mx-auto mt-3 max-w-md text-slate-600 dark:text-slate-400" data-i18n="home.games_empty_text">
-              VoxStarion is a brand-new studio. Our first games are still on the drawing board. Check back soon.
+          <div class="glass p-8 text-center sm:p-10">
+            <img src="assets/images/voxwords-icon.png" alt="VoxWords app icon" class="mx-auto h-24 w-24 rounded-3xl shadow-lg" width="96" height="96">
+            <span class="mt-6 inline-block rounded-full bg-teal-600/10 px-3 py-1 text-xs font-semibold text-teal-600 dark:bg-teal-400/10 dark:text-teal-400" data-i18n="home.game_voxwords_badge">Now on Google Play</span>
+            <h3 class="font-display mt-4 text-2xl font-semibold tracking-tight">VoxWords</h3>
+            <p class="mx-auto mt-3 max-w-md text-slate-600 dark:text-slate-400" data-i18n="home.game_voxwords_desc">
+              Find hidden words in 200 bilingual puzzles. A relaxing word search in English and Indonesian, with a race against the clock.
             </p>
+            <a href="https://play.google.com/store/apps/details?id=my.id.voxstarion.voxwords" target="_blank" rel="noopener" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-600/25 transition hover:bg-teal-500 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-slate-950">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <span data-i18n="home.game_play_button">Get it on Google Play</span>
+            </a>
           </div>
         </div>
       </div>
